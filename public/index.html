@@ -13,6 +13,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+
     <!-- New Tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" />
 
@@ -22,11 +23,14 @@
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
+
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
@@ -41,12 +45,13 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
           <form action="/tweets/" method="POST">
-            <textarea name="text" placeholder="What are you humming about?"></textarea>
+            <textarea name="text" id="tweetText" placeholder="What are you humming about?"></textarea>
               <input type="submit" value="Tweet">
                 <span class="counter">140</span>
           </form>
       </section>
     </main>
-
+<!-- Character Counter JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
