@@ -1,12 +1,19 @@
-$(document).ready(function() {
-  console.log("I'm ready!");
-});
+// $(document).ready(function() {
+  // console.log("I'm ready!");
+// });
 
 function eventHandler(event) {
-  console.log(event);
-  console.log("working!");
-}
+  let count = 140;
+  let counter = $( this ).siblings("span")[0];
+  console.log($(".counter").text(count - $(this).val().length));
+  console.log(count - $( this ).val().length);
+};
 
-const textArea = document.querySelector("#tweetText");
 
-textArea.addEventListener('keypress', eventHandler);
+let textArea = document.querySelector("#tweetText");
+
+
+textArea.addEventListener('input', eventHandler);
+
+
+$(".counter").text(140)
