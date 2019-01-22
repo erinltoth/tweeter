@@ -4,9 +4,11 @@
 
 function eventHandler(event) {
   let count = 140;
-  let counter = $( this ).siblings("span")[0];
-  console.log($(".counter").text(count - $(this).val().length));
-  console.log(count - $( this ).val().length);
+  if ($(this).val().length <= 140) {
+    return $($(this).siblings("span")[0]).text(count - $(this).val().length).css('color', 'black');
+  } else {
+    return $($(this).siblings("span")[0]).text(count - $(this).val().length).css('color', 'red');
+  }
 };
 
 
@@ -16,4 +18,3 @@ let textArea = document.querySelector("#tweetText");
 textArea.addEventListener('input', eventHandler);
 
 
-$(".counter").text(140)
