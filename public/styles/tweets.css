@@ -1,4 +1,4 @@
-article.tweets {
+article.tweets { /* */
   border-radius: 5px;
   background-color: #FFFFFF;
   margin-top: 5px;
@@ -9,7 +9,32 @@ article.tweets {
   display: table;
 }
 
+article.tweets:hover {
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #000000;
+  content: "";
+  clear: both;
+  display: table;
+  opacity: 1;
+  header{ background-color: red; }
+}
+
 article.tweets header {
+  opacity: 0.75;
+  width: 100%;
+  background-color: #F3F3F3;
+  padding: 10px;
+  border-radius-top: 5px;
+     content: "";
+  clear: both;
+  display: table;
+}
+
+article.tweets:hover header {
+  opacity: 1;
   width: 100%;
   background-color: #F3F3F3;
   padding: 10px;
@@ -32,7 +57,7 @@ article.tweets section.body {
   padding: 10px;
 }
 
-article.tweets span#name {
+article.tweets span.name {
   font-size: 2em;
   font-weight: bold;
   float: left;
@@ -40,7 +65,7 @@ article.tweets span#name {
 
 }
 
-article.tweets span#handle {
+article.tweets span.handle {
   float: right;
   line-height: 2.5;
 }
@@ -49,4 +74,18 @@ article.tweets footer {
   padding: 10px;
   font-size: 0.75em;
   border-top: 1px solid #F3F3F3;
+}
+
+article.tweets span.icons {
+  font-size: 1.5em;
+  float: right;
+  line-height: 0.9em;
+  opacity: 0;
+}
+
+article.tweets:hover span.icons {
+  font-size: 1.5em;
+  float: right;
+  line-height: 0.9em;
+  opacity: 1;
 }
