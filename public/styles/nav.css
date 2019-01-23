@@ -8,6 +8,7 @@ nav#nav-bar {
     padding-left: 2em;
     padding-right: 2em;
     top: 0;
+    z-index: 100;
 }
 
 #nav-bar img.logo {

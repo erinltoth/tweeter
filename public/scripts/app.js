@@ -1,52 +1,82 @@
 $(() => {
 // Test / driver code (temporary). Eventually will get this from the server.
-const data = [
-{
-  "user": {
-    "name": "Gary and Earl",
-    "avatars": {
-      "small":   "/images/user/garyandearl.png",
-      "regular": "/images/user/garyandearl.png",
-      "large":   "/images/user/garyandearl.png"
-    },
-    "handle": "@ottawakittesrcool"
-  },
-  "content": {
-    "text": "*bat* *bat* *bat* *chew* *chew*"
-  },
-  "created_at": 1461116232227
-},
-{
-  "user": {
-    "name": "Atrius",
-    "avatars": {
-      "small":   "/images/user/kitkats.png",
-      "regular": "/images/user/kitkats.png",
-      "large":   "/images/user/kitkats.png"
-    },
-    "handle": "@Atrius"
-  },
-  "content": {
-    "text": "MRRRRROW!"
-  },
-  "created_at": 1461116232227
-},
-{
-  "user": {
-    "name": "Sammich",
-    "avatars": {
-      "small":   "/images/user/sammich.png",
-      "regular": "/images/user/sammich.png",
-      "large":   "/images/user/sammich.png"
-    },
-    "handle": "@sammich"
-  },
-  "content": {
-    "text": "meow meow meow"
-  },
-  "created_at": 1461116232227
-}
-];
+// const data = [
+// {
+//   "user": {
+//     "name": "Lola",
+//     "avatars": {
+//       "small":   "/images/user/lola.jpeg",
+//       "regular": "/images/user/lola.jpeg",
+//       "large":   "/images/user/lola.jpeg"
+//     },
+//     "handle": "@lolamlemlola"
+//   },
+//   "content": {
+//     "text": "What's with all these cats?"
+//   },
+//   "created_at": 1461116232227
+// },
+// {
+//   "user": {
+//     "name": "Eve",
+//     "avatars": {
+//       "small":   "/images/user/eve.jpeg",
+//       "regular": "/images/user/eve.jpeg",
+//       "large":   "/images/user/eve.jpeg"
+//     },
+//     "handle": "@princessEveCat"
+//   },
+//   "content": {
+//     "text": "Let me go outside! I want to fight a raccoon!"
+//   },
+//   "created_at": 1461116232227
+// },
+// {
+//   "user": {
+//     "name": "Gary and Earl",
+//     "avatars": {
+//       "small":   "/images/user/garyandearl.png",
+//       "regular": "/images/user/garyandearl.png",
+//       "large":   "/images/user/garyandearl.png"
+//     },
+//     "handle": "@ottawakittesrcool"
+//   },
+//   "content": {
+//     "text": "*bat* *bat* *bat* *chew* *chew*"
+//   },
+//   "created_at": 1461116232227
+// },
+// {
+//   "user": {
+//     "name": "Atrius",
+//     "avatars": {
+//       "small":   "/images/user/kitkats.png",
+//       "regular": "/images/user/kitkats.png",
+//       "large":   "/images/user/kitkats.png"
+//     },
+//     "handle": "@Atrius"
+//   },
+//   "content": {
+//     "text": "MRRRRROW!"
+//   },
+//   "created_at": 1461116232227
+// },
+// {
+//   "user": {
+//     "name": "Sammich",
+//     "avatars": {
+//       "small":   "/images/user/sammich.png",
+//       "regular": "/images/user/sammich.png",
+//       "large":   "/images/user/sammich.png"
+//     },
+//     "handle": "@sammich"
+//   },
+//   "content": {
+//     "text": "meow meow meow"
+//   },
+//   "created_at": 1461116232227
+// },
+// ];
 
 function renderTweets(tweets) {
   for (tweet of tweets) {
@@ -87,7 +117,54 @@ function createTweetElement(data) {
 
 };
 
-renderTweets(data);
+ $("#new-tweet").on('submit', function(event) {
+    // prevent the default behavor
+    event.preventDefault();
+    // get the data from the form
+    // const content = $(this).find('input').val();
+    // ajax post request
+    const serialized = $(this).serialize();
+    console.log(serialized.length);
+    if (serialized.length <= 5) {
+     alert("You have to have something to say! Try to twit again!");
+
+    } else if (serialized.length > 5 && serialized.length <= 140) {
+      $.ajax({
+          method: "POST",
+          url: "/tweets",
+          data: serialized
+        }).done(function() {
+          console.log(serialized);
+        });
+    } else if (serialized.length > 140) {
+      alert("You can't twit that much! Try again.");
+    }
+
+  });
+
+const allTweets = $("#tweets-container");
+
+ function loadTweets() {
+  $.ajax({
+    method: "GET",
+    url: "/tweets"
+  }).done(function(tweets) {
+    allTweets.empty();
+
+    tweets.forEach((tweet) =>{
+
+      const element = renderTweets(tweets);
+
+      allTweets.prepend(element);
+      })
+
+  });
+
+  }
+
+  loadTweets();
+
+// renderTweets(data);
 
 // Test / driver code (temporary)
 // var $tweet = createTweetElement(tweetData);
