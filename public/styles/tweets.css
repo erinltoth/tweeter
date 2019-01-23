@@ -1,0 +1,52 @@
+article.tweets {
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #F3F3F3;
+   content: "";
+  clear: both;
+  display: table;
+}
+
+article.tweets header {
+  width: 100%;
+  background-color: #F3F3F3;
+  padding: 10px;
+  border-radius-top: 5px;
+     content: "";
+  clear: both;
+  display: table;
+}
+
+article.tweets img.user {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  float: left;
+}
+
+article.tweets section.body {
+  height: 100px;
+  line-height: 4;
+  padding: 10px;
+}
+
+article.tweets span#name {
+  font-size: 2em;
+  font-weight: bold;
+  float: left;
+  padding-left: 6px;
+
+}
+
+article.tweets span#handle {
+  float: right;
+  line-height: 2.5;
+}
+
+article.tweets footer {
+  padding: 10px;
+  font-size: 0.75em;
+  border-top: 1px solid #F3F3F3;
+}
