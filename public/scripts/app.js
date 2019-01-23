@@ -1,4 +1,4 @@
-$(function() {
+$(() => {
 // Test / driver code (temporary). Eventually will get this from the server.
 const data = [
 {
@@ -71,15 +71,15 @@ function createTweetElement(data) {
 
   const articleElement = $("<article>").addClass("tweets");
 
-  const header = $("<header>").appendTo(articleElement);
-  const img = $("<img>").attr('src', userAvatarRegular).addClass("user").appendTo(header);
-  const spanName = $("<span>").addClass("name").text(userName).appendTo(header);
-  const spanHandle = $("<span>").addClass("handle").text(userHandle).appendTo(header);
+  $("<header>").appendTo(articleElement)
+    .append($("<img>").attr('src', userAvatarRegular).addClass("user"))
+    .append($("<span>").addClass("name").text(userName))
+    .append($("<span>").addClass("handle").text(userHandle));
 
-  const body = $("<section>").addClass("body").text(contentText).appendTo(articleElement);
+  $("<section>").addClass("content").text(contentText).appendTo(articleElement);
 
-  const footer = $("<footer>").text(created_at).appendTo(articleElement);
-  const spanIcon = $("<span>").addClass("icons").appendTo(footer);
+  $("<footer>").text(created_at).appendTo(articleElement)
+    .append($("<span>").addClass("icons"));
 
 
   return articleElement;

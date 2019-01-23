@@ -39,7 +39,7 @@ article.tweets:hover header {
   background-color: #F3F3F3;
   padding: 10px;
   border-radius-top: 5px;
-     content: "";
+  content: "";
   clear: both;
   display: table;
 }
@@ -51,7 +51,7 @@ article.tweets img.user {
   float: left;
 }
 
-article.tweets section.body {
+article.tweets section.content {
   height: 100px;
   line-height: 4;
   padding: 10px;
