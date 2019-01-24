@@ -82,14 +82,13 @@ function renderTweets(tweets) {
   for (tweet of tweets) {
     // createTweetElement(tweet);
     let $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
 
     // console.log($tweet);
   }
 
   // var $tweet = createTweetElement(tweetData);
 };
-
 
 
 function createTweetElement(data) {
@@ -117,12 +116,9 @@ function createTweetElement(data) {
 
 };
 
+
  $("#new-tweet").on('submit', function(event) {
-    // prevent the default behavor
     event.preventDefault();
-    // get the data from the form
-    // const content = $(this).find('input').val();
-    // ajax post request
     const serialized = $(this).serialize();
     console.log(serialized.length);
     if (serialized.length <= 5) {
@@ -134,7 +130,8 @@ function createTweetElement(data) {
           url: "/tweets",
           data: serialized
         }).done(function() {
-          console.log(serialized);
+          loadTweets();
+
         });
     } else if (serialized.length > 140) {
       alert("You can't twit that much! Try again.");
@@ -151,16 +148,12 @@ const allTweets = $("#tweets-container");
   }).done(function(tweets) {
     allTweets.empty();
 
-    tweets.forEach((tweet) =>{
-
-      const element = renderTweets(tweets);
-
-      allTweets.prepend(element);
+    renderTweets(tweets);
+      // allTweets.prepend(element);
       })
 
-  });
+  };
 
-  }
 
   loadTweets();
 
