@@ -78,6 +78,14 @@ $(() => {
 // },
 // ];
 
+$( "#compose" ).click(function() {
+  $( ".new-tweet" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+  $( "#tweetText" ).focus();
+
+});
+
 function renderTweets(tweets) {
   for (tweet of tweets) {
     // createTweetElement(tweet);
@@ -117,12 +125,18 @@ function createTweetElement(data) {
 };
 
 
+
  $("#new-tweet").on('submit', function(event) {
     event.preventDefault();
     const serialized = $(this).serialize();
+    $(".error").text("").slideToggle( "slow", function () {
+
+    });
     console.log(serialized.length);
     if (serialized.length <= 5) {
-     alert("You have to have something to say! Try to twit again!");
+     $(".error").text("You have to twit more!").slideToggle( "fast", function() {
+
+     });
 
     } else if (serialized.length > 5 && serialized.length <= 140) {
       $.ajax({
@@ -134,7 +148,10 @@ function createTweetElement(data) {
 
         });
     } else if (serialized.length > 140) {
-      alert("You can't twit that much! Try again.");
+      $(".error").text("Twit less, please!").slideToggle( "fast", function() {
+
+     });
+
     }
 
   });

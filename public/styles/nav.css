@@ -25,3 +25,26 @@ nav#nav-bar {
     line-height: 2.5;
     margin-left: 5px;
 }
+
+#nav-bar button#compose {
+    float: right;
+    margin-top: 0.8em;
+    margin-right: 2em;
+    border-radius: 5px;
+    height: 50px;
+    text-decoration: none;
+    color: #00a087;
+    border: 2px solid black;
+    background: #e0fcf7;
+}
+
+#nav-bar button#compose:hover {
+    float: right;
+    margin-top: 0.8em;
+    margin-right: 2em;
+    border-radius: 5px;
+    height: 50px;
+    text-decoration: none;
+    color: black;
+    background: white;
+}
