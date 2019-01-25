@@ -1,8 +1,10 @@
-# Tweeter Project
+# Tweeter 
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a single-page Twitter clone app built with HTML, CSS, JS, jQuery, and AJAX on the client-side, and Node, Express, and MongoDB on the server-side. 
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## Motivation
+
+Tweeter is a project I completed while studying at Lighthouse Labs in order to learn/practice full-stack development.
 
 ## Getting Started
 
@@ -14,4 +16,20 @@ This repository is the starter code for the project: Students will fork and clon
 ## Dependencies
 
 - Express
-- Node 5.10.x or above
+- Body Parser
+- Chance
+- md5
+- MongoDB
+- Nodemon
+
+## Screenshots
+
+![The page as it appears on first load](https://github.com/erinltoth/tweeter/blob/master/docs/tweeter-on-load.png)
+
+![Composing a new tweet](https://github.com/erinltoth/tweeter/blob/master/docs/Tweeter-compose.png)
+
+![Displaying a newly sent tweet](https://github.com/erinltoth/tweeter/blob/master/docs/Tweeter-new-tweet.png)
+
+![Error for too short of a twit/tweet](https://github.com/erinltoth/tweeter/blob/master/docs/Tweeter-too-short.png)
+
+![Error for too long of a twit/tweet](https://github.com/erinltoth/tweeter/blob/master/docs/Tweeter-too-long.png)
