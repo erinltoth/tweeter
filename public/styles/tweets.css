@@ -50,7 +50,7 @@ article.tweets img.user {
 
 article.tweets section.content {
   height: 100px;
-  line-height: 4;
+  line-height: 1;
   padding: 10px;
 }
 

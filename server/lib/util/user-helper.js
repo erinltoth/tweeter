@@ -1,49 +1,47 @@
-$(() => {
 // eslint-disable-next-line strict
 
-  'use strict';
 
 
-  const Chance = require('chance');
 
-  const chance = new Chance();
+const Chance = require('chance');
 
-  const md5 = require('md5');
+const chance = new Chance();
 
-  module.exports = {
+const md5 = require('md5');
 
-    generateRandomUser: () => {
-      const gender = chance.gender();
-      const firstName = chance.first({ gender });
-      const lastName = chance.last();
-      const userName = `${firstName} ${lastName}`;
+module.exports = {
 
-      let userHandle = '@';
-      if (Math.random() > 0.5) {
-        let prefix = chance.prefix({ gender });
-        prefix = prefix.replace('.', '');
-        userHandle += prefix;
-      }
+  generateRandomUser: () => {
+    const gender = chance.gender();
+    const firstName = chance.first({ gender });
+    const lastName = chance.last();
+    const userName = `${firstName} ${lastName}`;
 
-      userHandle += lastName;
+    let userHandle = '@';
+    if (Math.random() > 0.5) {
+      let prefix = chance.prefix({ gender });
+      prefix = prefix.replace('.', '');
+      userHandle += prefix;
+    }
 
-      if (Math.random() > 0.5) {
-        const suffix = Math.round(Math.random() * 100);
-        userHandle += suffix;
-      }
+    userHandle += lastName;
 
-      const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
-      const avatars = {
-        small: `${avatarUrlPrefix}_50.png`,
-        regular: `${avatarUrlPrefix}.png`,
-        large: `${avatarUrlPrefix}_200.png`,
-      };
+    if (Math.random() > 0.5) {
+      const suffix = Math.round(Math.random() * 100);
+      userHandle += suffix;
+    }
 
-      return {
-        name: userName,
-        handle: userHandle,
-        avatars,
-      };
-    },
-  };
-});
+    const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
+    const avatars = {
+      small: `${avatarUrlPrefix}_50.png`,
+      regular: `${avatarUrlPrefix}.png`,
+      large: `${avatarUrlPrefix}_200.png`,
+    };
+
+    return {
+      name: userName,
+      handle: userHandle,
+      avatars,
+    };
+  },
+};
