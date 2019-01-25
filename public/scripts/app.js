@@ -58,10 +58,10 @@ $(() => {
     const serialized = $(this).serialize();
     $('.error').text('').slideUp('slow', () => {
     });
-    if (serialized.length <= 5) {
+    if ($('#tweetText').val().length <= 5) {
       $('.error').text('You have to twit something!').slideToggle('fast', () => {
       });
-    } else if (serialized.length > 5 && serialized.length <= 140) {
+    } else if ($('#tweetText').val().length > 5 && $('#tweetText').val().length <= 140) {
       $.ajax({
         method: 'POST',
         url: '/tweets',
@@ -71,7 +71,7 @@ $(() => {
         $('#tweetText').val('');
         $('span.counter').text('140');
       });
-    } else if (serialized.length > 140) {
+    } else if ($('#tweetText').val().length > 140) {
       $('.error').text('Twit a little less, please!').slideUp('fast', () => {
       });
     }
