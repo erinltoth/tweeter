@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 $(() => {
   const allTweets = $('#tweets-container');
 
@@ -55,7 +56,7 @@ $(() => {
   $('#new-tweet').on('submit', function (event) {
     event.preventDefault();
     const serialized = $(this).serialize();
-    $('.error').text('').slideToggle('slow', () => {
+    $('.error').text('').slideUp('slow', () => {
     });
     if (serialized.length <= 5) {
       $('.error').text('You have to twit something!').slideToggle('fast', () => {
@@ -71,7 +72,7 @@ $(() => {
         $('span.counter').text('140');
       });
     } else if (serialized.length > 140) {
-      $('.error').text('Twit a little less, please!').slideToggle('fast', () => {
+      $('.error').text('Twit a little less, please!').slideUp('fast', () => {
       });
     }
   });
