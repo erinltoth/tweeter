@@ -1,4 +1,5 @@
 $(() => {
+  // Function to allow for dynamic character counting on the compose tweet item
   function eventHandler() {
     const count = 140;
     if ($(this).val().length <= 140) {

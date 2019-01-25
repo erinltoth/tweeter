@@ -4,6 +4,9 @@ const userHelper = require('../lib/util/user-helper');
 
 const tweetsRoutes = express.Router();
 
+// Functions for tweet routing and random user generation. This code was supplied by
+// Lighthouse Labs and was not edited by Erin Toth.
+
 module.exports = function (DataHelpers) {
   tweetsRoutes.get('/', (req, res) => {
     DataHelpers.getTweets((err, tweets) => {

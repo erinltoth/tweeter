@@ -1,14 +1,14 @@
 $(() => {
   const allTweets = $('#tweets-container');
 
-
+  // Animation for slide-in of compose field on button press.
   $('#compose').click(() => {
     $('.new-tweet').slideToggle('slow', () => {
     });
     $('#tweetText').focus();
   });
 
-
+  // Function to create the template for styling new twits/tweets and appending it in to the HTML.
   function createTweetElement(data) {
     const userName = data.user.name;
     const userAvatarRegular = data.user.avatars.regular;
@@ -31,6 +31,7 @@ $(() => {
     return articleElement;
   }
 
+  // Function responsible for rendering the twits/tweets and placing a new twit/tweet at the top.
   function renderTweets(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
@@ -49,6 +50,8 @@ $(() => {
     });
   }
 
+  // Function responsible for taking content input into the compose text area
+  // Content is validated for length and an error message is animated in if it does not fit requirements.
   $('#new-tweet').on('submit', function (event) {
     event.preventDefault();
     const serialized = $(this).serialize();

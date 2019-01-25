@@ -1,6 +1,7 @@
 // eslint-disable-next-line strict
 
-
+// Function to generate random user and icon for new tweets. This function was
+// supplied by Lighthouse Labs and has not been altered by Erin Toth.
 
 
 const Chance = require('chance');
