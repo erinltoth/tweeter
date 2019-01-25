@@ -1,11 +1,10 @@
-
-
 section.new-tweet {
   padding:0 2em;
   padding-top: 4px;
   padding-bottom:4px;
   border-radius: 5px;
   background-color: #F3F3F3;
+  display: none;
 }
 
 section.new-tweet h2 {
@@ -20,16 +19,12 @@ section.new-tweet textarea {
 
 span.counter {
   float: right;
-
 }
 
 span.error {
   padding-left: 50px;
   color: red;
   font-weight: bold;
-/*  margin: 10px 0px;
-  padding:12px;*/
-
 }
 
 

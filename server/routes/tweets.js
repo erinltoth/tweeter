@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-
 
 const express = require('express');
 const userHelper = require('../lib/util/user-helper');

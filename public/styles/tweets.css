@@ -4,7 +4,7 @@ article.tweets { /* */
   margin-top: 5px;
   width: 100%;
   border: 1px solid #F3F3F3;
-   content: "";
+  content: "";
   clear: both;
   display: table;
 }
@@ -19,7 +19,6 @@ article.tweets:hover {
   clear: both;
   display: table;
   opacity: 1;
-  header{ background-color: red; }
 }
 
 article.tweets header {
@@ -27,8 +26,7 @@ article.tweets header {
   width: 100%;
   background-color: #F3F3F3;
   padding: 10px;
-  border-radius-top: 5px;
-     content: "";
+  content: "";
   clear: both;
   display: table;
 }
@@ -38,7 +36,6 @@ article.tweets:hover header {
   width: 100%;
   background-color: #F3F3F3;
   padding: 10px;
-  border-radius-top: 5px;
   content: "";
   clear: both;
   display: table;
@@ -62,7 +59,6 @@ article.tweets span.name {
   font-weight: bold;
   float: left;
   padding-left: 6px;
-
 }
 
 article.tweets span.handle {

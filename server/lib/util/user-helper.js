@@ -1,43 +1,49 @@
-"use strict";
+$(() => {
+// eslint-disable-next-line strict
 
-const Chance = require("chance");
-const chance = new Chance();
+  'use strict';
 
-const md5 = require('md5');
 
-module.exports = {
+  const Chance = require('chance');
 
-  generateRandomUser: () => {
-    const gender    = chance.gender();
-    const firstName = chance.first({gender: gender});
-    const lastName  = chance.last();
-    const userName  = firstName + " " + lastName;
+  const chance = new Chance();
 
-    let userHandle = "@";
-    if (Math.random() > 0.5) {
-      let prefix    = chance.prefix({gender: gender});
-      prefix = prefix.replace(".", "");
-      userHandle += prefix
-    }
+  const md5 = require('md5');
 
-    userHandle += lastName;
+  module.exports = {
 
-    if (Math.random() > 0.5) {
-      const suffix = Math.round(Math.random() * 100);
-      userHandle += suffix;
-    }
+    generateRandomUser: () => {
+      const gender = chance.gender();
+      const firstName = chance.first({ gender });
+      const lastName = chance.last();
+      const userName = `${firstName} ${lastName}`;
 
-    const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
-    const avatars = {
-      small:   `${avatarUrlPrefix}_50.png`,
-      regular: `${avatarUrlPrefix}.png`,
-      large:   `${avatarUrlPrefix}_200.png`
-    }
+      let userHandle = '@';
+      if (Math.random() > 0.5) {
+        let prefix = chance.prefix({ gender });
+        prefix = prefix.replace('.', '');
+        userHandle += prefix;
+      }
 
-    return {
-      name: userName,
-      handle: userHandle,
-      avatars: avatars
-    };
-  }
-};
+      userHandle += lastName;
+
+      if (Math.random() > 0.5) {
+        const suffix = Math.round(Math.random() * 100);
+        userHandle += suffix;
+      }
+
+      const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
+      const avatars = {
+        small: `${avatarUrlPrefix}_50.png`,
+        regular: `${avatarUrlPrefix}.png`,
+        large: `${avatarUrlPrefix}_200.png`,
+      };
+
+      return {
+        name: userName,
+        handle: userHandle,
+        avatars,
+      };
+    },
+  };
+});

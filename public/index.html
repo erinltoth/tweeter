@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
+    <title>Tweeter - by Erin</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -27,6 +27,9 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- Character Counter JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -34,12 +37,9 @@
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
-      <span class="header">Erin's Tweeter App Test!</span>
-      <span class="buttons"><button id="compose">Compose</button>
+      <span class="header">Tweeter!</span>
+      <span class="buttons"><button id="compose">✎ Compose</button>
     </nav>
-
-    <p></p>
-    <p></p>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -48,18 +48,11 @@
           <form action="/tweets" id="new-tweet" method="POST">
             <textarea name="text" id="tweetText" placeholder="What are you humming about?"></textarea>
               <input type="submit" value="Tweet">
-
                 <span class="error"></span>
-                <!-- <div class="longTwit">Your twit is too long!</div> -->
-
               <span class="counter">140</span>
           </form>
       </section>
-      <section id="tweets-container">
-
-    </section>
+      <section id="tweets-container"></section>
     </main>
-<!-- Character Counter JS -->
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
