@@ -87,24 +87,30 @@ $(() => {
     } else if (seconds < 60){
         return seconds + " seconds ago";
     } else if (seconds < 3600) {
-        minutes = Math.floor(seconds/60)
+        minutes = Math.floor(seconds / 60)
         if(minutes > 1)
             return minutes + " minutes ago";
         else
             return "1 minute ago";
     } else if (seconds < 86400) {
-        hours = Math.floor(seconds/3600)
+        hours = Math.floor(seconds / 3600)
         if(hours > 1)
             return hours + " hours ago";
         else
             return "1 hour ago";
     }
-    else {
-        days = Math.floor(seconds/86400)
+    else if (seconds < 604800) { 
+        days = Math.floor(seconds / 86400)
         if(days > 1)
             return days + " days ago";
         else
             return "1 day ago";
+    } else {
+      weeks = Math.floor(seconds / 604800)
+      if (weeks > 1)
+        return weeks + " weeks ago";
+      else 
+        return "1 week ago";
     }
 }
 
